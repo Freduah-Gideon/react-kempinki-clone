@@ -1,0 +1,31 @@
+
+.hotel_info{
+    background-color: inherit;
+    text-align: center;
+    color: white;
+}
+.hotel_info_1{
+    padding:20px;
+    width: 50%;
+    color: white;
+    font-size: 30px;
+    margin:auto;
+    background-color: brown;
+    text-align: center;
+}
+.hotel_info_1 > p{
+    margin:0;
+}
+.hotel_info_2{
+   text-align: center;
+   width: 50%;
+    margin:auto;
+}
+.hotel_info_2 > p{
+    font-style: italic;
+    font-size: 25px;
+}
+.hotel_info_2_sub > p{
+    line-height: 2;
+    font-size: 13px;
+} 

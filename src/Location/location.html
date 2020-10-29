@@ -1,0 +1,82 @@
+{% extends 'rooms/base.html' %}
+{% block form %}
+{% include 'rooms/snippets/forms/form.html' %}
+{% endblock form %}
+{% block quicklinks %}
+<a href="{% url 'rooms:home' %}">Homepage</a>
+<a href="">Why Suhum</a>
+<a href="{% url 'rooms:all-rooms' %}">Rooms & Suites</a>
+<a href="">Restaurants & Bars</a>
+<a href="">Meetings & Events</a>
+<a href="">Weddings</a>
+<a href="">Luxury Spa</a>
+<a href="">Services & Facilities</a>
+<a href="">Special Offers</a>
+<a href="">Health & Safety</a>
+<a href="">Gallery</a>
+{% endblock quicklinks %}
+{% block location %}
+{% load static %}
+{% block title %}
+<title>Jumbo |Location</title>
+{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'font/css/all.css' %}">
+<link rel="stylesheet" href="{% static 'styles/general/header.css' %}">
+<link rel="stylesheet" href="{% static 'styles/general/snippets/footer.css' %}">
+<link rel="stylesheet" href="{% static 'styles/room/snippets/form/form.css' %}">
+<link rel="stylesheet" href="{% static 'styles/room/location/index.css' %}">
+<link rel="stylesheet" href="{% static 'styles/general/hero.css' %}">
+{% endblock links %}
+<div class="container-fluid" id='location-container'>
+    <div id="location-info">
+        <h2>LOCATION INFORMATION</h2>
+        <p>Jumbo Is Located Adjacent Children's Hospital On The Suhum to Koforiduah Main Road</p>
+
+        <div id='address-info'>
+            <p>Address Information</p>
+            <ul>
+                <li>Phone:<i> <a href="tel:+233500709994">+233500709994</a></i></li>
+                <li>Phone2:<i> <a href="tel:+233554315153">+233554315153</i></a></li>
+                <li>Email: <a href="mailto:jumbo@gmail.com"><i>jumbo@jumbo.com</i></a></li>
+            </ul>
+
+            <div>
+                <p>Location By Coordinates</p>
+                <ul>
+                    <li>Longitude : <span><i>156.150</i></span></li>
+                    <li>Latitude : <span><i>0.456</i></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+<script>
+    // var element = document.querySelector('.overview')
+    // function toggleOverview() {
+    //     element.classList.toggle('hide')
+    // }
+    // window.addEventListener("load", () => {
+    //     if (window.innerWidth <= "1000") {
+    //         element.classList.add('hide')
+    //     }
+    // })
+    // window.addEventListener('resize', () => {
+    //     if (window.innerWidth <= "1000") {
+    //         element.classList.add('hide')
+    //     }
+    //     else {
+    //         element.classList.remove('hide')
+    //     }
+    // })
+window.addEventListener("load",()=>{
+    let body = document.getElementById("location-container")
+    document.body.scrollTo(body)
+})
+</script>
+
+{% endblock location %}

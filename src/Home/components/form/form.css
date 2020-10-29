@@ -1,0 +1,27 @@
+.hero_form_div{
+
+}
+.hero_form {
+    text-align: center;
+}
+.hero_form > label{
+    display: inline-block;
+}
+
+.toggle_children_label{
+    color: white;
+    font-size: 20px;
+}
+
+.submit-lg{
+    /* background-color: rgba(255,255,255,0); */
+    background-color: brown;
+    color: white;
+    width: 100px;
+    height: 40px;
+    margin:auto;
+}
+@media(max-width:1000px){
+
+
+}

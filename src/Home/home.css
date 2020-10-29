@@ -1,0 +1,11 @@
+:root{
+    --bgColor : #010d25;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.hide{
+    display: none;
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,120 @@
+footer{
+
+    position: relative;
+    margin:-8px;
+    /* margin-top: 100px; */
+    background-color: #010d25;
+    height: max-content;
+    display: flex;
+    justify-content: space-evenly;
+}
+#mail-link-div{
+    margin-top: -15px;
+    padding-left: 15px;
+}
+#mail-link{
+    text-decoration: none;
+}
+.img-div{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 1s;
+}
+.img-div > *:hover{
+    color: orange;
+}
+#booking-options{
+    width: max-content;
+}
+.booking-p{
+    margin:0;
+    margin-top: 10px;
+}
+.booking-link{
+    /* padding:5px; */
+    padding:2px;
+    color: white;
+    text-decoration: none;
+    background-color:rgba(253, 99, 72,0.3);
+    transition: 500ms;
+}
+.booking-link:hover{
+    background-color: rgba(253, 99, 72,1);
+}
+.helpful_divs{
+    display: flex;
+}
+.helpful_div_last{
+    margin-left: 10px;
+
+}
+.helpful_divs > div > *{
+    display: block;
+    text-decoration: none;
+    line-height: 1.5;
+}
+.newsletter_input{
+    background-color: inherit;
+    outline: none;
+    border:none;
+    color: wheat;
+    border-bottom: 2px solid greenyellow;
+}
+.foot-heads{
+    color: wheat;
+    font-size: 15px !important;
+}
+.foot-tails{
+    color: whitesmoke;
+    font-size: 12px !important;
+} 
+
+@media(max-width:1000px){
+}
+@media(max-width:940px){
+    .foot-heads{
+        font-size: 15px !important;
+    }
+    .foot-tails{
+        font-size: 12px !important;
+    }
+    .foot-img{
+        display: none ;
+        width: 20px !important;
+        height: 20px !important;
+    }
+}
+
+@media(max-width:780px){
+    footer{
+
+        position: relative;
+        margin:-8px;
+        background-color: #010d25;
+        height:initial;
+        display: block !important;
+        text-align: center;
+    }
+    .font-img{
+        width: 20% !important;
+
+    }
+    .foot-heads{
+        font-size: 100% !important;
+    }
+    #booking-options{
+        margin: auto;
+    }
+    .helpful_divs{
+        justify-content: center;
+        text-align: start;
+    }
+    .helpful_divs > div > *{
+        line-height: 3;
+    }
+    .newsletter_input{
+        width: 80%;
+    }
+}

@@ -1,0 +1,64 @@
+{% extends 'rooms/base.html' %}
+{% block form %}
+{% include 'rooms/snippets/forms/form.html' %}
+{% endblock form %}
+{% block quicklinks %}
+
+<a href="">Why Suhum</a>
+<a href="{% url 'rooms:location-and-transport' %}">Location & Transport</a>
+<a href="{% url 'rooms:all-rooms' %}">Rooms & Suites</a>
+<a href="">Restaurants & Bars</a>
+<a href="">Meetings & Events</a>
+<a href="">Weddings</a>
+<a href="">Luxury Spa</a>
+<a href="">Services & Facilities</a>
+<a href="">Special Offers</a>
+<a href="">Health & Safety</a>
+<a href="">Gallery</a>
+
+{% endblock quicklinks %}
+{% block heroadded %}
+
+<div class="welcome">
+    <h1>WELCOME TO JUMBO HOTEL</h1>
+    <h3>LOOKING FOR A ROOM?<br>
+    <button onclick="window.location = `{% url 'rooms:all-rooms' %}`">CLICK HERE</button></h3>
+</div>
+{% endblock heroadded %}
+{% block index %}
+{% load static %}
+{% block title %}
+<title>Jumbo |Homepage</title>
+{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'font/css/all.css' %}">
+<link rel="stylesheet" href="{% static 'styles/room/css/index.css' %}">
+<link rel="stylesheet" href="{% static 'styles/room/css/responsive.css' %}">
+<link rel="stylesheet" href="{% static 'styles/room/snippets/form/form.css' %}">
+{% endblock links %}
+
+<div class="hotel_info">
+    <div class="hotel_info_1">
+        <p>Book With Confidence</p>
+    </div>
+    <div class="hotel_info_2">
+        <p>Serving Since 1998</p>
+        <span>The Best Hotel In Ghana</span>
+        <div class="hotel_info_2_sub">
+            <p>Since 1998 Jumbo Has Become Ghana's Most Trustful And Recognized Hotel Ever To Exist
+                We Have Over 1000 Rooms Without Respect To Category And Also At The Most Affordable Price Ever.
+                From Five Star Rooms To Our Standard Rooms, Security, Comfortability And Affordability Is Our Main
+                Concern.
+                Book Your Stay To Have The Experience Of A Lifetime
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="map_container">
+    <div class="map_div" id='map_div'>
+    </div>
+</div> -->
+
+{% endblock index %}

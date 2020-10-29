@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bookingformtag %}
+<html lang="en">
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block title %}
+        {% endblock title %}
+        <link rel="stylesheet" href="{% static 'styles/general/header.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/general/snippets/footer.css' %}">
+        <link rel="stylesheet" href="{% static 'styles/general/hero.css' %}">
+        {% block links %}
+        {% endblock links %}
+    </head>
+
+<header>
+    <div class="logo_div">
+        <div class="text" onclick="toggleOverview()" style="cursor:pointer">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div onclick="window.location = {% url 'rooms:home' %}">
+        <img class="logo" src="{% static 'styles/room/media/logo.svg' %}" alt="">
+    </div>
+    <div class="header_middle">
+        <p>Jumbo Hotel Suhum Rapha</p>
+        <span>Suhum, Ghana</span>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="header_buttons">
+        <a href="{% url 'account:home' %}">{{user.first_name}}</a>
+        <a href="{% url 'auth:logout' %}">Logout</a>
+    </div>
+    {% else %}
+    <div class="header_buttons">
+        <a href="{% url 'auth:register' %}">Register</a>
+        <a href="{% url 'auth:login' %}">Login</a>
+    </div>
+    {% endif %}
+
+</header>
+
+<body>
+    <div class="hero_div">
+        <div class="overview">
+            <p class="overview_p">QUICK LINKS</p>
+            {% block quicklinks %}
+            {% endblock quicklinks %}
+        </div>
+        {% block heroadded %}
+
+        {% endblock heroadded %}
+        {% block form %}
+        {% endblock form %}
+    </div>
+    {% block index %}
+    {% endblock index %}
+    {% block location %}
+    {% endblock location %}
+    {% block allrooms %}
+    {% endblock allrooms %}
+    {% block book %}
+    {% endblock book %}
+</body><br><br><br><br>
+<hr style="border:2px solid wheat; width: 100%;">
+
+{% block footer %}
+{% include 'rooms/snippets/footer/footer.html' %}
+{% endblock footer %}
+
+<script>
+    let element = document.querySelector('.overview')
+    function toggleOverview() {
+        element.classList.toggle('hide')
+    }
+    window.addEventListener("load", () => {
+        if (window.innerWidth <= "1000") {
+            element.classList.add('hide')
+        }
+    })
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= "1000") {
+            element.classList.add('hide')
+        }
+        else {
+            element.classList.remove('hide')
+        }
+    })
+</script>
+
+</html>

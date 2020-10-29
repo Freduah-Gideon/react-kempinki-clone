@@ -1,0 +1,15 @@
+.container-fluid{
+    width: 80%;
+    margin:auto;
+}
+
+#location-container{
+color: rgb(95, 95, 97);
+}
+body{
+    background-color:  #010d25;
+}
+
+a{
+    color: rgb(97, 92, 92);
+}

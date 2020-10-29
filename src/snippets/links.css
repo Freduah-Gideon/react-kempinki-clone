@@ -1,0 +1,41 @@
+:root{
+    --obg : rgba(1, 13, 37, 0.8);
+}
+.overview{
+    background-color: var(--obg);
+    position: absolute;
+    box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 1);
+    width: 300px;
+    top: 30%;
+    padding: 30px 0px;
+    
+}
+.overview > *{
+    padding-left: 70px;
+    display: block;
+    margin:auto;
+    line-height: 1.5;
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+}
+.overview_p{
+    margin-top: -10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.overview > *:hover{
+    background-color: rgb(9, 9, 155);
+}
+
+@media(max-width:800px){
+    .overview{
+        background-color: var(--obg);
+        position: absolute;
+        box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 1);
+        width: 300px;
+        top: 0;
+        padding: 30px 0px;
+        
+    }
+}

@@ -1,0 +1,108 @@
+.hide{
+    display: none;
+}
+.hero_div{
+    position: relative;
+    margin:-8px;
+    overflow: hidden;
+    height: 600px;
+    background-position:center;
+    background-image: url(./hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.hero_form_div{
+    position: sticky;
+    right: 0;
+    left: 0;
+    margin-top:-357px;
+    top:0;
+    background-color: rgb(199, 83, 83);
+    font-weight: bold;
+    box-shadow : 0px 0px 5px 2px rgb(12, 12, 12)
+}
+.hero_form {
+    text-align: center;
+}
+.hero_form > label{
+    display: inline-block;
+}
+
+.toggle_children_label{
+    color: white;
+    font-size: 20px;
+}
+
+.submit-lg{
+    /* background-color: rgba(255,255,255,0); */
+    background-color: brown;
+    color: white;
+    width: 100px;
+    height: 40px;
+    margin:auto;
+}
+
+.welcome {
+    position: absolute;
+    top: 200px;
+    right: 0;
+    background-color: rgba(204, 192, 192, .5);
+    text-align: center;
+}
+
+.welcome h1,
+.welcome h3 {
+    color: white;
+}
+
+.welcome button {
+    background-color: #010d25;
+    color: greenyellow;
+    height: 40px;
+    width: max-content;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.welcome button:hover {
+    box-shadow: 0px 0px 5px 5px rgba(56, 55, 55, 0.5);
+}
+
+@media(max-width:800px){
+    
+.welcome {
+    position: relative;
+    margin-top: 180px;
+    top: 200px;
+    right: 0;
+    left: 0;
+    background-color: rgba(204, 192, 192, .5);
+    text-align: center;
+}
+
+.welcome h1,
+.welcome h3 {
+    color: white;
+}
+
+.welcome button {
+    background-color: #010d25;
+    color: greenyellow;
+    height: 40px;
+    width: max-content;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.welcome button:hover {
+    box-shadow: 0px 0px 5px 5px rgba(56, 55, 55, 0.5);
+}
+}
+@media(max-width:350px){
+
+}

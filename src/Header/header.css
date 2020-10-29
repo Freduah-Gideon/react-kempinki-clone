@@ -1,0 +1,135 @@
+:root{
+    /* --bgColor : #010d25; */
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+header{
+    background-color: rgba(1, 13, 37, 1) !important;
+    position: relative;
+    color: white;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    height: 100px;
+    display:flex; 
+    align-items: center;
+    display: flex;
+    margin:-8px;
+}
+
+.logo{
+    position: relative;
+    width: 140px;
+}
+.primary-link{
+    text-decoration: none;
+    color: white;
+}.header_buttons_top{
+    font-size: 15px;
+    position: absolute;
+    top:0px;
+    right: 150px;
+    cursor: pointer;
+    background-color: rgba(1, 13, 37, 0.8);
+    transition: 1s;
+}
+.header_buttons_top:hover{
+    right: 170px;
+}
+.header_buttons_top > *{
+    margin:0;
+    padding:7px 10px;
+}
+.header_line{
+    font-style: italic;
+    font-style: 10px;
+    color: wheat;
+}
+.header_middle{
+    padding:-20px 0px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.header_middle > *{
+    margin:10px 0px;
+    padding:0;
+}
+.header_buttons{
+    margin-right: 20px;
+    /* margin-top: 30px; */
+
+}
+.header_language_select{
+    width:max-content;
+}
+.header_login{
+    padding:0 5px;
+}
+
+.header_buttons > *{
+    display: inline;
+    padding:0px 10px;
+}
+.header_buttons > a{
+    color: white;
+    text-decoration: none;
+}
+
+@media(max-width:1200px){
+    .header_buttons_top{
+        visibility: hidden;
+     }
+     .text{
+         display: none !important;
+     }
+}
+
+@media(max-width:800px){
+    .header{
+        display: flex;
+        align-items: center;
+    }
+    .header_middle{
+        align-items: center;
+    }
+    .header_middle > *{
+        font-size: 50%;
+    }
+    .logo{
+        display: none;
+    }
+    .text > div{
+        border:2px solid white;
+        margin:5px 0px ; 
+        width: 100%;
+        transition: 1s;
+    }
+    .text{
+        background-color: black;
+        width: 30px;
+        margin: 5px;
+        border-radius: 5px;
+        padding:5px 10px;
+        cursor: pointer;
+        display: block !important;
+    }
+    .text:hover {
+        background-color: black;
+    }
+    .text:hover > div{
+        border-color: white;
+    }
+}
+
+@media(max-width:450px){
+    .header_middle{
+
+    }
+    .header_buttons > *{
+        display: block;
+        font-size: 80%;
+        margin:5px 0px 0px 0px;
+    }
+}

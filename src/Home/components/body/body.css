@@ -1,0 +1,22 @@
+
+.luxury{
+    position: relative;
+    margin:-8px;
+    height: 500px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    color: wheat;
+}
+.luxury_div{
+    width: 400px;
+    height: max-content;
+    overflow: hidden;
+}
+.luxury_div > img{
+    width: 100%;
+}
+.luxury_sub_text{
+    width: 100%;
+    padding:5px;
+}

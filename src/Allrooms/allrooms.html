@@ -1,0 +1,177 @@
+{% extends 'rooms/base.html' %}
+{% block form %}
+{% include 'rooms/snippets/forms/form.html' %}
+{% endblock form %}
+
+{% block quicklinks %}
+
+<a href="{% url 'rooms:home' %}">Homepage</a>
+<a href="">Why Suhum</a>
+<a href="{% url 'rooms:location-and-transport' %}">Location & Transport</a>
+<a href="">Restaurants & Bars</a>
+<a href="">Meetings & Events</a>
+<a href="">Weddings</a>
+<a href="">Luxury Spa</a>
+<a href="">Services & Facilities</a>
+<a href="">Special Offers</a>
+<a href="">Health & Safety</a>
+<a href="">Gallery</a>
+{% endblock quicklinks %}
+{% block allrooms %}
+{% block title %}
+<title>Jumbo | All Rooms</title>
+{% endblock title %}
+{% block links %}
+<link rel="stylesheet" href="../../../static/styles/room/snippets/form/form.css">
+<link rel="stylesheet" href="../../../static/styles/room/overview/allrooms.css">
+{% endblock links %}
+
+<div id='category'>
+    <p>Choose Any Category Of Room To View</p>
+</div>
+<form class="room-types" method="GET">
+    <select name="" value='p' id="" onchange="sort(event)">
+        <option>Sort Rooms Accordingly</option>
+        <option value="p">Presidential Suite</option>
+        <option value="e">Executive Rooms</option>
+        <option value="d">Deluxe Rooms</option>
+        <option value="">Random</option>
+    </select>
+    <script>
+
+        function sort(event) {
+            window.location = `/sort-rooms-according-to/${event.target.value}/`
+
+        }
+    </script>
+</form>
+{% if room_sort %}
+{% for room in room_sort %}
+<div class="room-container container-fluid confirm-container" style="margin-top: 110px;">
+    <div class="reservation">
+        {% if room.tag == 'p' %}
+        <p><i>Presidential Room</i></p>
+        {% elif room.tag == 'e' %}
+        <p><i>Executive Room</i></p>
+        {% elif room.tag == 'd' %}
+        <p><i>Deluxe Room</i></p>
+        {% else %}
+        {% endif %}
+        <div class="reservation-image-div">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <div class="carousel-button button-left">
+                <span>&leftarrow;</span>
+            </div>
+            <div class="carousel-button button-right">
+                <span>&RightArrow;</span>
+            </div>
+        </div>
+    </div>
+    <div class="reservation-other">
+        <h3>Room Features</h3>
+        <ul>
+            {% for features in room.features.all %}
+            <li class="features-li">{{features}}</li>
+            {% endfor %}
+        </ul>
+        <p><span class="price-actual">Total Price GHC: <code data-price="{{room.price}}">{{room.price}}</code>
+            </span> <br><i><kbd>Including All Features Per Night</kbd></i> </p>
+        <div class="book-button"><button onclick="window.location = `{% url 'book:bookroom' room.slug %}`"
+            >Book Room</button></div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% if query_room.count == 0 %}
+<div>
+    <p>No Room Matched Your Query. You Can Find All Rooms <a href="{% url 'rooms:all-rooms' %}">Here</a> </p>
+</div>
+{% else %}
+{% for room in query_room %}
+<div class="room-container container-fluid confirm-container" style="margin-top: 110px;">
+    <div class="reservation">
+        {% if room.tag == 'p' %}
+        <p><i>Presidential Room</i></p>
+        {% elif room.tag == 'e' %}
+        <p><i>Executive Room</i></p>
+        {% elif room.tag == 'd' %}
+        <p><i>Deluxe Room</i></p>
+        {% else %}
+        {% endif %}
+        <div class="reservation-image-div">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <div class="carousel-button button-left">
+                <span>&leftarrow;</span>
+            </div>
+            <div class="carousel-button button-right">
+                <span>&RightArrow;</span>
+            </div>
+        </div>
+    </div>
+    <div class="reservation-other">
+        <h3>Room Features</h3>
+        <ul>
+            {% for features in room.features.all %}
+            <li class="features-li">{{features}}</li>
+            {% endfor %}
+        </ul>
+        <p><span class="price-actual">Total Price GHC: <code data-price="{{room.price}}">{{room.price}}</code>
+            </span> <br><i><kbd>Including All Features Per Night</kbd></i> </p>
+            <div class="book-button"><button onclick="window.location = `{% url 'book:bookroom' room.slug %}`">Book Room</button></div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+{% for room in rooms %}
+<div class="room-container container-fluid confirm-container" style="margin-top: 110px;">
+    <div class="reservation">
+        {% if room.tag == 'p' %}
+        <p><i>Presidential Room</i></p>
+        {% elif room.tag == 'e' %}
+        <p><i>Executive Room</i></p>
+        {% elif room.tag == 'd' %}
+        <p><i>Deluxe Room</i></p>
+        {% else %}
+        {% endif %}
+        <div class="reservation-image-div">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <img src="{{room.image}}" alt="">
+            <div class="carousel-button button-left">
+                <span>&leftarrow;</span>
+            </div>
+            <div class="carousel-button button-right">
+                <span>&RightArrow;</span>
+            </div>
+        </div>
+    </div>
+    <div class="reservation-other">
+        <h3>Room Features</h3>
+        <ul>
+            {% for features in room.features.all %}
+            <li class="features-li">{{features}}</li>
+            {% endfor %}
+        </ul>
+        <p><span class="price-actual">Total Price GHC: <code data-price="{{room.price}}">{{room.price}}</code>
+            </span> <br><i><kbd>Including All Features Per Night</kbd></i> </p>
+            <div class="book-button"><button onclick="window.location = `{% url 'book:bookroom' room.slug %}`">Book Room</button></div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock allrooms %}

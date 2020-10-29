@@ -1,0 +1,165 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% block title %}
+<title>Jumbo | Checkout Booking</title>
+{% endblock title %}
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'styles/room/css/book.css' %}">
+<link rel="stylesheet" href="{% static 'styles/room/css/bookresponsive.css' %}">
+<link rel="stylesheet" href="{% static 'styles/room/css/confirm.css' %}">
+<link rel="stylesheet" href="{% static 'styles/room/css/checkout.css' %}">
+
+{% endblock links %}
+
+{% block checkout %}
+<style>
+    html {
+        background-color: white !important;
+        color: black !important;
+    }
+</style>
+<div class="container-fluid">
+    <!-- <div id='book-top-container'>
+            <form action="">
+                <div class="form-row">
+                    <label for="check_in">
+                        <p>Check In</p>
+                        <input type="date" name="check_in" id='check_in' class="check">
+                    </label>
+                    <label for="check_out">
+                        <p>Check Out</p>
+                        <input type="date" name="check_out" id='check_out' class="check_out">
+                    </label>
+                    <label for="nor">
+                        <p>Number Of Rooms
+                        </p> <select name="nor" id="nor">
+                            <option value="1">1 Room</option>
+                            <option value="2">2 Rooms</option>
+                            <option value="3">3 Rooms</option>
+                            <option value="4">4 Rooms</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-row">
+                    <label for="noar">
+                        <p>Number Of Adult Rooms</p>
+                        <select name="noar" id="noar">
+                            <option value="1">1 Room</option>
+                            <option value="2">2 Rooms</option>
+                            <option value="3">3 Rooms</option>
+                            <option value="4">4 Rooms</option>
+                        </select>
+                    </label>
+                    <label for="nocr">
+                        <p>Number Of Children Room(s)</p>
+                        <select name="nocr" id="nocr">
+                            <option value="1">1 Room</option>
+                            <option value="2">2 Rooms</option>
+                            <option value="3">3 Rooms</option>
+                            <option value="4">4 Rooms</option>
+                        </select>
+                    </label>
+                    <br>
+                    <label for="promo">
+                        <p>Promo Code</p>
+                        <input type="text" name="promo" id="promo">
+                    </label>
+                </div>
+            </form>
+        </div> -->
+    <div class="room-container confirm-container" style="margin-top: 110px;">
+        <div class="reservation">
+            <p><i>Your Reservation</i></p>
+            <div class="reservation-image-div">
+                <img src="{{booking.room.image}}" alt="">
+            </div>
+        </div>
+        <div class="reservation-other">
+            <h3>Superior Room</h3>
+            <ul>
+                {% for features in booking.room.features.all %}
+                <li>{{features}}</li>
+                {% endfor %}
+                <p>Total Price GHC {{booking.get_price}}
+                <h6>Tax Inclusive</h6>
+                </p>
+                {% if booking.get_duration == 1 %}
+                <p>Duration: {{booking.get_duration}} night</p>
+                {% else %}
+                <p>Duration: {{booking.get_duration}} nights</p>
+                {% endif %}
+        </div>
+    </div>
+
+    <div class="room-container" style="box-shadow: none;">
+        <div class="checkout-payment">
+            <form action="" onsubmit="first_checkout(event)" method="POST"> {% csrf_token %}
+                <div class="checkout-form">
+                    <label for="title">
+                        <p>First Name:<span class="required-field-span">*</span></p>
+                        {{form.first_name}}
+                    </label>
+                    <label for="title">
+                        <p>Last Name:<span class="required-field-span">*</span></p>
+                        {{form.last_name}}
+                    </label>
+                    <label for="title">
+                        <p>Address 1:<span class="required-field-span">*</span></p>
+                        {{form.address1}}
+                    </label>
+                    <label for="title">
+                        <p>Address 2:<span class="required-field-span">*</span></p>
+                        {{form.address2}}
+                    </label>
+                    <label for="title">
+                        <p>Mobile<span class="required-field-span">*</span></p>
+                        {{form.phone}}
+                    </label>
+                    <label for="title">
+                        <p>Email<span class="required-field-span">*</span></p>
+                        <input type="email" value="{{user.email}}" required name="email">
+                    </label><br><br>
+
+                </div>
+                <div class="payment-form">
+                    <p>Total Payment GHC {{booking.get_price}}</p>
+                    <label for="card_type">
+                        <p>Payment Option:<span>*</span></p>
+                        {{form.payment_option}}
+                    </label>
+                    <br><br><br>
+                    <div style="text-align: center;">
+                        <button type="submit">Proceed To Payment</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'scripts/room/index.js' %}"></script>
+<script>
+    function first_checkout(event) {
+        event.preventDefault()
+        const form = new FormData(event.target)
+        const xhttp = new XMLHttpRequest();
+        xhttp.addEventListener("load", () => {
+            response = JSON.parse(xhttp.responseText)
+            if (response['error']) {
+                alert(response['error'])
+            }
+            else if (response['success']) {
+                alert(response['success'])
+            }
+            xhttp.addEventListener("error", () => {
+                console.log(xhttp.status)
+            })
+        })
+        xhttp.open("POST", event.target.getAttribute('action'), true)
+        xhttp.send(form)
+    }
+</script>
+
+{% endblock checkout %}
